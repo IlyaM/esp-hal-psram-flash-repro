@@ -49,7 +49,7 @@ ran 8 times per boot.
 
 | Build | Flash status 1 | Flash read after PSRAM use |
 | --- | --- | --- |
-| without step 2 (Quad Enable stays set) | `0x40` | 0 wrong, 24 rounds of 24 |
+| same program without the flash write (Quad Enable stays set) | `0x40` | 0 wrong, 24 rounds of 24 |
 | this program | `0x40`, `0x00` after step 2 and on later boots | 7 wrong, 24 rounds of 24 |
 
 - The wrong bytes are always the first 8 of the table, read as `0xff` (7
