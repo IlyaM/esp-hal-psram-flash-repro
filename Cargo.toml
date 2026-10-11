@@ -1,0 +1,18 @@
+[package]
+name    = "esp-hal-psram-flash-repro"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+critical-section       = "1"
+esp-backtrace          = { git = "https://github.com/esp-rs/esp-hal", rev = "bdcc3b0872b8affbafa8f3bab79f398d07a49b5a", features = ["esp32s3", "panic-handler", "println"] }
+esp-bootloader-esp-idf = { git = "https://github.com/esp-rs/esp-hal", rev = "bdcc3b0872b8affbafa8f3bab79f398d07a49b5a", features = ["esp32s3"] }
+esp-hal                = { git = "https://github.com/esp-rs/esp-hal", rev = "bdcc3b0872b8affbafa8f3bab79f398d07a49b5a", features = ["esp32s3", "unstable"] }
+esp-println            = { git = "https://github.com/esp-rs/esp-hal", rev = "bdcc3b0872b8affbafa8f3bab79f398d07a49b5a", features = ["esp32s3"] }
+
+[profile.release]
+debug         = true
+lto           = "fat"
+codegen-units = 1
+opt-level     = "s"
